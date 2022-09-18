@@ -7,20 +7,16 @@
 {% endblock %}
 
 {%block css_files %}
+    <link rel="stylesheet" href="{% static "blog/post.css" %}" >  
     <link rel="stylesheet" href="{% static "blog/index.css" %}" > 
 {% endblock %}
 
 {% block content %}
-    </header id="main-navigation">
-        <h1><a href="">Pascal Li Poo Kim's Blog</a></h1>
-        <nav>
-            <a href="">All Posts</a>
-        </nav>
-    <header>
+    
     
     <section id="welcome"> 
-        <header id="">
-            <img src="{% static  "blog/images/pascal.jpg" %}" alt="Pascal- The Author Of This Blog" />
+        <header>
+            <img src="{% static "blog/images/pascal.jpg" %}" alt="Pascal - The Author Of This Blog" />
             <h2>PASCAL LI POO KIM BLOG</h2>
         </header>
         <p> Hi, I am Pascal and I love programming a lot and read about innovative technology! </p>
@@ -30,19 +26,7 @@
         <h2>My Latest Thoughts</h2>
 
         <ul>
-            <li>
-                <article class="post">
-                    <a href="">
-                        <img src="{% static  "blog/images/mountains.jpg" %}" alt="Scotland Tour" />
-                        <div class="post__content">
-                            <h3> Scotland Tour </h3>
-                            <p> There's nothing like the views when hiking in the mountains! And I wasn't even
-                                what happened whilst I was enjoying the view!
-                            </p>
-                        </div>
-                    </a>
-                </article>
-            </li>
+            {% include "blog/include/post.html" %}
         </ul>
     </section>
 
