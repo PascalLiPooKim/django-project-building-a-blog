@@ -37,9 +37,11 @@ all_posts = [
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
           aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
           velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
+          
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
           aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
           velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
+          
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
           aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
           velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
@@ -56,9 +58,11 @@ all_posts = [
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
           aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
           velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
+          
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
           aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
           velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
+          
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
           aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
           velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
@@ -80,7 +84,12 @@ def starting_page(request):
     })
 
 def posts(request):
-    return render(request, "blog/all-posts.html")
+    return render(request, "blog/all-posts.html", {
+        "all_posts": all_posts
+    })
 
 def post_detail(request, slug):
-    return render(request, "blog/post-detail.html")
+    identified_post = next(post for post in all_posts if post["slug"] == slug)
+    return render(request, "blog/post-detail.html", {
+        "post":identified_post
+    })
