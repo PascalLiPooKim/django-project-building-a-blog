@@ -8,7 +8,7 @@ all_posts = [
         "author": "Pascal",
         "date": date(2022, 9, 18),
         "title": "Scotland Tour",
-        "excerpt": "There's nothing like the views when touring in the mountains in Scotland! And I wasn't even what happened whilst I was enjoying the view!",
+        "excerpt": "There's nothing like the views when touring in the mountains in Scotland! And I wasn't even prepared for what happened whilst I was enjoying the view!",
         "content":"""
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
                 Ipsa consequatur obcaecati dolorem fuga harum molestiae 
