@@ -3,7 +3,7 @@ from datetime import date
 
 all_posts = [
     {
-        "slug": "hike-in-the-mountains",
+        "slug": "tour-in-scotland",
         "image": "edinburgh.jpg",
         "author": "Pascal",
         "date": date(2022, 9, 18),
@@ -76,7 +76,7 @@ def get_date(post):
 
 # Create your views here.
 
-def starting_page(request):
+def startingPage(request):
     sorted_posts = sorted(all_posts, key=get_date)
     latest_posts = sorted_posts[-3:]
     return render(request, "blog/index.html", {
@@ -88,7 +88,7 @@ def posts(request):
         "all_posts": all_posts
     })
 
-def post_detail(request, slug):
+def postDetail(request, slug):
     identified_post = next(post for post in all_posts if post["slug"] == slug)
     return render(request, "blog/post-detail.html", {
         "post":identified_post
