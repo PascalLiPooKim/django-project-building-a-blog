@@ -43,8 +43,8 @@ class AllPostsView(ListView):
 #     })
 
 class SinglePostView(View):
-    template_name = "blog/post-detail.html"
-    model = Post
+    # template_name = "blog/post-detail.html"
+    # model = Post
     
     def get(self, request, slug):
         post = Post.objects.get(slug=slug)
@@ -88,3 +88,7 @@ class SinglePostView(View):
 #         "post":identified_post,
 #         "post_tags": identified_post.tags.all()
 #     })
+
+class ReadLaterView(View):
+    def post(self, request):
+        pass
