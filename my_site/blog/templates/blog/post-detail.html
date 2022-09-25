@@ -62,10 +62,11 @@
 
 
     <section id="comments">
+        <h2> Comments Section </h2>
         <ul>
             {% for comment in comments %}
                 <li>
-                    <h2>{{ comment.user_name }} ({{ comment.user_email }})</h2>
+                    <h3>{{ comment.user_name }} ({{ comment.user_email }})</h3>
                     <p>{{ comment.text|linebreaks }}</p>
                 </li>
             {% endfor %}
