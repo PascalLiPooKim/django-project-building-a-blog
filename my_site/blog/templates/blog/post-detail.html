@@ -12,7 +12,7 @@
 
 {% block content %}
      <section id="summary">
-        <h2>{{post.title}}</h2>
+        <h2 id="title">{{post.title}}</h2>
         <div> 
             {% for tag in post_tags %}
                 <span class="tag">{{ tag.caption }}</span>
@@ -32,10 +32,17 @@
     </main>
 
 
-    <div>
+    <section id="comment-form">
+        <h2>Your Comment</h2>
         <form>
-            {{ comment_form }}
+            {% for form_field in comment_form %}
+                <div class="form-control">
+                    {{ form_field.label_tag }}
+                    {{ form_field }}
+                    {{ form_field.errors }}
+                </div>
+            {% endfor %}
             <button> Save Comment</button>
         </form>
-    </div>
+    </section>
 {% endblock %}
