@@ -64,14 +64,14 @@ class SinglePostView(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
-            
+
             return HttpResponseRedirect(reverse("post-detail-page", args=[slug]))
         
         
         context = {
             "post": post,
             "post_tags": post.tags.all(),
-            "comment_form": CommentForm()
+            "comment_form": comment_form,
             }
         return render(request, "blog/post-detail.html", context)
     # def get_context_data(self, **kwargs):
