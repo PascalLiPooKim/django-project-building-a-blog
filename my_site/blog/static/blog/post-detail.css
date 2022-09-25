@@ -122,8 +122,8 @@ box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     display: block;
   }
   
-  .form-control input,
-  .form-control textarea {
+.form-control input,
+.form-control textarea {
     display: block;
     width: 100%;
     font: inherit;
@@ -132,7 +132,47 @@ box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     border: 1px solid #ccc;
   }
 
-  .form-control input:hover,
-  .form-control input:active {
-    background-color: rgba(182, 232, 246, 0.945)
+.form-control input:hover,
+.form-control input:active {
+    background-color: rgba(182, 232, 246, 0.945);
+  }
+
+.errorlist {
+    list-style: none;
+    margin: 0.5rem 0;
+    padding: 0;
+    color: #d6000b;
+  }
+  
+.invalid label {
+    color: #d6000b;
+  }
+  
+.invalid input,
+.invalid textarea {
+    border-color: #d6000b;
+    background-color: #ffe6e7;
+  }
+  
+#alert {
+    margin: 8rem auto 3rem auto;
+    border: 1px solid #d6000b;
+    background-color: #ffe6e7;
+    padding: 1rem;
+    width: 90%;
+    max-width: 50rem;
+  }
+  
+#alert a {
+    text-decoration: none;
+    border: 1px solid #d6000b;
+    background-color: #d6000b;
+    color: white;
+    padding: 0.25rem 1.5rem;
+    border-radius: 6px;
+  }
+
+  #alert a:hover, 
+  #alert a:active {
+    background-color: #00d672;
   }
