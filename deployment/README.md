@@ -16,11 +16,25 @@ This created blog was not made to be deployed for production. However, deploymen
 
    - In the **ALLOWED_HOSTS** list, add ```getenv(<name_of_environment_variable></name_of_environment_variable>)```.
 
-6. First choice server for development would be to use <span style="color:orange">*AWS Elastic Beanstalk*</span> to create an application. Choose the appropriate option during the setup.
+6. First choice server for development would be to use <span style="color:orange">*AWS Elastic Beanstalk*</span> (free tier) to create an application. Choose the appropriate option during the setup.
 7. To be able to ```Upload your code```, more preparations need to be done in our project. Create an ```.ebextensions``` folder and in it add a ```django.config``` file.
 8. Compress the required files and folders and upload the zipped folder on <span style="color:orange">*AWS*</span>.
 9. Click on ```Configure more options```, go to ```Edit``` **Software** and in the "Environment properties" section,, fill with:
 
-   - IS_PRODUCTION = False
-   - APP_HOST = xxx (it is not known until deployed for the first time unless it is knwon in advance)
+   - IS_DEVELOPMENT = False
+   - APP_HOST = xxx (it is not known until deployed for the first time unless it is known in advance)
 10. Create the application. The domain will be then seen. Copy it and in the Configuration - Software - Environment properties, replace the placeholder with the domain. Apply the changes.
+
+## Additional Information
+
+1. SSL and custom domains can be configured (depending on *AWS* tier used).
+
+2. Connecting to PostgreSQL:
+   1. Instead of using **SQLite**, other databases can be used such as **PostgreSQL**. More information can found on [django Databases](https://docs.djangoproject.com/en/4.1/ref/databases/) (additional dependencies may be needed and after installation, make sure to update the ```requirements.txt```).
+   2. <span style="color:orange">*AWS RDS*</span> (free tier) would be the first database choice.
+   3. Moreover, in the ```settings.py```, the **DATABASES** configuration should be changed accordingly based on details of the <span style="color:orange">*RDS*</span>.
+   4. Run ```python manage.py migrate```.
+   5. As a new database was created and added, a super user need to be created. No posts will be seen on the (deployed) website as the database is empty.
+   6. Re-upload on <span style="color:orange">*AWS Elastic Beanstalk*</span> should be done after compressing the right files and folders as some files were updated. Deploy again.
+   7. Regarding the **Security Groups** of the  <span style="color:orange">*RDS*</span>, change the inbound rules to ```Anywhere```.
+

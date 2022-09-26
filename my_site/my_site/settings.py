@@ -27,9 +27,11 @@ SECRET_KEY = 'django-insecure-c%(^^0)^c5c$^tqc-kzxr%(sdh=*1pux)^&$wuvt#v4poym25v
 DEBUG = True
 # DEBUG = getenv("IS_DEVELOPMENT", True)
 
-ALLOWED_HOSTS = [
-    getenv("APP_HOST")
-]
+ALLOWED_HOSTS = []
+
+# ALLOWED_HOSTS = [
+#     getenv("APP_HOST", "localhost")
+# ]
 
 
 # Application definition
@@ -86,6 +88,17 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'postgres',
+#         'USER': '',
+#         'PASSWORD': '',
+#         'HOST': '',
+#         'PORT': ''   
+#     }
+# }
 
 
 # Password validation
